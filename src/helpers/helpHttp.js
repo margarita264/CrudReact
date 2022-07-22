@@ -7,7 +7,7 @@ export const helpHttp = () =>{
         }
 
         const controller =new AbortController();
-        options.signal =controller.signal;
+        options.signal = controller.signal;
 
         options.method = options.method || "GET";
         options.headers = options.headers
@@ -33,22 +33,22 @@ export const helpHttp = () =>{
 } 
 
     const get=(url, options = {})=> customFetch(url,options);
-    const post=(url, options = {})=>{
-        options.method="POST";
-        return customFetch(url);
-    }
+    const post = (url, options = {}) => {
+        options.method = "POST";
+        return customFetch(url, options);
+      };
     const put=(url, options = {})=>{
         options.method="PUT";
-        return customFetch(url);
+        return customFetch(url, options);
     }
     const del=(url, options = {})=>{
         options.method="DELETE";
-        return customFetch(url);
+        return customFetch(url, options);
     }
-    return{
+    return {
         get,
         post,
         put,
-        del
-    }
-}
+        del,
+      };
+};
